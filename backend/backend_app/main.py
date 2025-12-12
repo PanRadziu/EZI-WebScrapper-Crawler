@@ -1,9 +1,9 @@
 from fastapi import FastAPI, BackgroundTasks, HTTPException, Response
 from fastapi.middleware.cors import CORSMiddleware
-from typing import Dict
+from typing import Dict, List
 import uuid
 import os
-from backend_app.models import CrawlerConfig
+from backend_app.models import CrawlerConfig, JobSummary
 from backend_app.crawler import CrawlManager
 from backend_app.settings import CORS_ORIGINS, APP_TITLE
 from backend_app.storage import Storage
@@ -20,6 +20,14 @@ app.add_middleware(
 
 manager = CrawlManager()
 storage = Storage()
+
+@app.get("/jobs", response_model=List[JobSummary])
+def get_all_jobs():
+    summaries = []
+    for run_id in manager.jobs:
+        summary_dict = manager.get_status(run_id)
+        summaries.append(summary_dict)
+    return list(reversed(summaries))
 
 @app.post("/start")
 async def start_crawl(config: CrawlerConfig, background_tasks: BackgroundTasks) -> Dict:
@@ -48,26 +56,21 @@ def export(run_id: str, format: str):
     if run_id not in manager.jobs:
         raise HTTPException(status_code=404, detail="run_id not found")
 
-    if format == "json":
-        path = storage.export_json(run_id)
-        media = "application/json"
-    elif format == "csv":
-        path = storage.export_csv(run_id)
-        media = "application/zip"  # bo zwracamy ZIP z dwoma CSV
-    elif format == "graphml":
-        path = storage.export_graphml(run_id)
-        media = "application/xml"
-    elif format == "zip":
-        path = storage.export_zip_full(run_id)
-        media = "application/zip"
-    else:
-        raise HTTPException(status_code=400, detail="Unsupported format")
+    try:
+        if format == "json":
+            path = storage.export_json(run_id)
+            media = "application/json"
+        else:
+            raise HTTPException(status_code=400, detail="Unsupported format")
 
-    data = path.read_bytes()
-    filename = os.path.basename(path)
-    return Response(
-        content=data,
-        media_type=media,
-        headers={"Content-Disposition": f'attachment; filename="{filename}"'}
-    )
-
+        data = path.read_bytes()
+        filename = os.path.basename(path)
+        return Response(
+            content=data,
+            media_type=media,
+            headers={"Content-Disposition": f'attachment; filename="{filename}"'}
+        )
+    except FileNotFoundError:
+        raise HTTPException(status_code=404, detail="Data not found. Job might not have finished yet.")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
