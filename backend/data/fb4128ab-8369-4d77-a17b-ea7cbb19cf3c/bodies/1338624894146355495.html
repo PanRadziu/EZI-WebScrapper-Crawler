@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Sign Up | Scrape This Site | A public sandbox for learning web scraping</title>
+    <link rel="icon" type="image/png" href="/static/images/scraper-icon.png" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+
+    
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,900,700|Courgette' rel='stylesheet' type='text/css'>
+    <link href='/static/css/signup.css' rel='stylesheet' type='text/css'>
+    <link href='https://www.scrapethissite.com/lessons/' rel='canonical'>
+
+    <!-- Start of Async Drift Code -->
+    <script>
+    !function() {
+      var t;
+      if (t = window.driftt = window.drift = window.driftt || [], !t.init) return t.invoked ? void (window.console && console.error && console.error("Drift snippet included twice.")) : (t.invoked = !0,
+      t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ],
+      t.factory = function(e) {
+        return function() {
+          var n;
+          return n = Array.prototype.slice.call(arguments), n.unshift(e), t.push(n), t;
+        };
+      }, t.methods.forEach(function(e) {
+        t[e] = t.factory(e);
+      }), t.load = function(t) {
+        var e, n, o, i;
+        e = 3e5, i = Math.ceil(new Date() / e) * e, o = document.createElement("script"),
+        o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + i + "/" + t + ".js",
+        n = document.getElementsByTagName("script")[0], n.parentNode.insertBefore(o, n);
+      });
+    }();
+    drift.SNIPPET_VERSION = '0.3.1';
+    drift.load('6nmy7z65gsxc');
+    </script>
+    <!-- End of Async Drift Code -->
+
+
+
+  </head>
+
+  <body>
+    <nav id="site-nav">
+            <div class="container">
+                <div class="col-md-12">
+                    <ul class="nav nav-tabs">
+                        <li id="nav-homepage">
+                            <a href="/" class="nav-link hidden-sm hidden-xs">
+                                <img src="/static/images/scraper-icon.png" id="nav-logo">
+                                Scrape This Site
+                            </a>
+                        </li>
+                        <li id="nav-sandbox">
+                            <a href="/pages/" class="nav-link">
+                                <i class="glyphicon glyphicon-console hidden-sm hidden-xs"></i>
+                                Sandbox
+                            </a>
+                        </li>
+                        <li id="nav-lessons">
+                            <a href="/lessons/" class="nav-link">
+                                <i class="glyphicon glyphicon-education hidden-sm hidden-xs"></i>
+                                Lessons
+                            </a>
+                        </li>
+                        <li id="nav-faq">
+                            <a href="/faq/" class="nav-link">
+                                <i class="glyphicon glyphicon-flag hidden-sm hidden-xs"></i>
+                                FAQ
+                            </a>
+                        </li>
+                        
+                        <li id="nav-login" class="pull-right">
+                            <a href="/login/" class="nav-link">
+                                Login
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <script type="text/javascript">
+            var path = document.location.pathname;
+            var tab = undefined;
+            if (path === "/"){
+                tab = document.querySelector("#nav-homepage");
+            } else if (path.indexOf("/faq/") === 0){
+                tab = document.querySelector("#nav-faq");
+            } else if (path.indexOf("/lessons/") === 0){
+                tab = document.querySelector("#nav-lessons");
+            } else if (path.indexOf("/pages/") === 0) {
+                tab = document.querySelector("#nav-sandbox");
+            } else if (path.indexOf("/login/") === 0) {
+                tab = document.querySelector("#nav-login");
+            }
+            tab.classList.add("active")
+        </script>
+
+    
+
+    <div id="signup">
+
+        <section id="hero">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <p id="preheader" class="cursive">
+                            A course to help you
+                        </p>
+                        <h1 id="header">
+                            Scrape Any Website
+                        </h1>
+                        <p id="postheader">
+                            Learn how to build your own web scrapers and<br><strong>start collecting the data you need.</strong>
+                        </p>
+                    </div><!--.col-->
+                </div><!--.row-->
+
+                <div class="row">
+                    <div class="col-md-12 text-center buy-now">
+                        <img src="/static/images/red-arrow.png" class="hidden-sm hidden-xs" />
+                        
+<a class="gumroad-button" href="https://gum.co/oLpqb?wanted=true" data-gumroad-single-product="true">Get Started Now</a>
+<br>
+<small class="text-muted cta-subtext">
+    <i class="glyphicon glyphicon-lock"></i>
+    Purchase securely with Paypal or Credit Card.
+</small>
+                    </div><!--.col-->
+                </div><!--.row-->
+
+            </div><!--.container-->
+        </section>
+
+        <section id="subhero">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3 text-center">
+                        Build your first scraper in minutes!
+                    </div><!--.col-->
+                </div><!--.row-->
+
+            </div><!--.container-->
+        </section>
+
+        <section id="testimonials">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-1">
+                        <img src="/static/images/paul-blank.jpg" class="img-rounded img-responsive" />
+                    </div><!--.col-->
+                    <div class="col-md-5">
+                        <blockquote>
+                            "The course was great and well worth the tuition.
+                            It was easy to follow, and I was able to conquer the basics of web scraping very quickly."
+                            <footer>Paul Blank</footer>
+                        </blockquote>
+                    </div>
+
+                    <div class="col-md-1">
+                        <img src="/static/images/lev-selector.jpg" class="img-rounded img-responsive" />
+                    </div><!--.col-->
+                    <div class="col-md-5">
+                        <blockquote>
+                            "I really liked your course, because it showed me how it is possible to do things in a simple and elegant way and saved me a lot of time (days if not weeks)."
+                            <footer>Lev Selector</footer>
+                        </blockquote>
+                    </div>
+                </div><!--.row-->
+
+            </div><!--.container-->
+        </section>
+
+        <section id="benefits">
+            <div class="container">
+
+
+                <div class="row benefit-row">
+                    <div class=" col-md-offset-2 col-md-5">
+                        <h3>Follow along step-by-step...</h3>
+                        <ul>
+                            <li>Watch as I guide you through the entire process of building a web scraper</li>
+                            <li>I'll show you the most common problems you'll encounter, and how to get past them</li>
+                            <li>Download my sample code from each lesson and run it yourself</li>
+                        </ul>
+                    </div><!--.col-->
+                    <div class="col-md-3">
+                        <img src="/static/images/screenshots/http-request.png" class="img-responsive img-circle screenshot"/>
+                    </div><!--.col-->
+                </div><!--.row-->
+
+                <div class="row benefit-row">
+                    <div class="col-md-offset-2 col-md-3">
+                        <img src="/static/images/screenshots/spreadsheet.png" class="img-responsive img-circle screenshot"/>
+                    </div><!--.col-->
+                    <div class="col-md-5">
+                        <h3>You'll Learn How to Scrape:</h3>
+                        <ul>
+                            <li>Tables</li>
+                            <li>Forms</li>
+                            <li>Pagination</li>
+                            <li>Search Boxes</li>
+                            <li>Javascript and AJAX</li>
+                            <li>iFrames</li>
+                            <li>eCommerce Websites</li>
+                            <li>Logins &amp; Sessions</li>
+                        </ul>
+                        <p class="lead">
+                            You'll also learn how to export your data into an <strong>excel spreadsheet</strong> or <strong>database</strong> for easy access.
+                        </p>
+                    </div><!--.col-->
+                </div><!--.row-->
+
+                <div class="row benefit-row">
+                    <div class="col-md-offset-2 col-md-5">
+                        <h3>Get access to:</h3>
+                        <ul>
+                            <li>Dozens of unique lessons covering the most common scraping problems</li>
+                            <li>Downloadable, working python code samples that you can use right away</li>
+                            <li>A community discussion around each lesson, with me answering questions</li>
+                            <li>Almost 2GB of video content that you can view online or download and take with you</li>
+                        </ul>
+                    </div><!--.col-->
+                    <div class="col-md-3">
+                        <img src="/static/images/screenshots/dashboard.png" class="img-responsive img-circle screenshot"/>
+                    </div><!--.col-->
+                </div><!--.row-->
+
+            </div><!--.container-->
+        </section>
+
+        <section id="guarantee">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4">
+                        <img src="/static/images/satisification-guarantee-logo.jpg" class="img-responsive" />
+                        <p class="text-muted text-center">
+                            If you're not happy with the course, you'll get a 100% refund. There's <u>nothing to lose</u>.
+                        </p>
+                    </div>
+                </div>
+            </div><!--.container-->
+        </section>
+
+        <section id="video">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3 text-center">
+                        <p>Learn more about the course:</p>
+                        <video controls style="width:100%">
+                            <source src="https://s3.amazonaws.com/web-scraping-course/00-promo/Web+Scraping+Course+Intro.mp4" type="video/mp4">
+                            Your browser doesn't support HTML5 video :( Try using the latest version of Firefox or Chrome
+                        </video>
+                    </div><!--.col-->
+                </div><!--.row-->
+            </div><!--.container-->
+        </section>
+
+        <section id="second-buy-now">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center buy-now">
+                        
+<a class="gumroad-button" href="https://gum.co/oLpqb?wanted=true" data-gumroad-single-product="true">Get Started Now</a>
+<br>
+<small class="text-muted cta-subtext">
+    <i class="glyphicon glyphicon-lock"></i>
+    Purchase securely with Paypal or Credit Card.
+</small>
+                    </div><!--.col-->
+                </div><!--.row-->
+            </div><!--.container-->
+        </section>
+
+        <section id="story">
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-md-1 col-md-offset-3">
+                        <img src="/static/images/nicholas-renotte.jpg" class="img-rounded img-responsive" />
+                    </div><!--.col-->
+                    <div class="col-md-5">
+                        <blockquote>
+                            "I loved the course and believed it was worth every penny!"
+                            <footer>Nicholas Renotte</footer>
+                        </blockquote>
+                    </div>
+
+                </div><!--.row-->
+
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <hr>
+                        <h2 class="text-center">This course has been <em>years in the making</em>.</h2>
+                        <hr>
+
+                        <p class="lead">
+                            In 2012, I published a blog post titled "I Don’t Need No Stinking API: Web Scraping For Fun and Profit" documenting some lessons I had learned scraping a few different sites.
+                        </p>
+                        <p>
+                            The post shot to the top of Hacker News and has since been viewed by over 250,000 people. It resonated with people because of its <strong>simple but important lessons on pulling data from websites</strong>.
+                        </p>
+                        <p>
+                            It has been used as required reading material in some college-level courses, and it even outranked the Wikipedia article when you searched for "web scraping" in Google.
+                        </p>
+                        <p class="lead">
+                            In 2013, I published my first book titled "The Ultimate Guide to Web Scraping." The book has since sold thousands of copies to people from all kinds of backgrounds.
+                        </p>
+                        <p>
+                            I heard from everyone <strong>from graduate students and software developers to small business owners and journalists</strong>. Many wrote in with praise for how the book had helped them finally understand the technical concepts and collect the data they were looking for.
+                        </p>
+                        <p>
+                            The number one piece of feedback I got about the book was that people wanted more hands-on examples. They wanted to practice building scrapers for simplified sites that were easy to learn. Some people just wanted working code that they could tweak and use for their own purposes.
+                        </p>
+                        <p class="lead">
+                            That's what led me to create <strong>Scrape This Site &mdash; the world's best place to learn web scraping</strong>. I wanted to create a site that was:
+                        </p>
+                        <ul>
+                            <li>Built for beginners &mdash; no technical background required</li>
+                            <li>Easy to follow, with simple step-by-step instructions</li>
+                            <li>Focused on the fundamentals that apply to every website</li>
+                            <li>Thorough, giving plenty of examples and use cases</li>
+                        </ul>
+                        <hr>
+                    </div><!--.col-->
+                </div><!--.row-->
+
+            </div><!--.container-->
+        </section>
+
+        <section id="fine-print">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-2">
+                        <h3>Get Lifetime Access!</h3>
+                        <ul>
+                            <li>View all the latest content whenever new lessons are added</li>
+                            <li>Each lesson will always have the latest, up-to-date information</li>
+                        </ul>
+                    </div><!--.col-->
+                    <div class="col-md-4">
+                        <h3>Need Help?</h3>
+                        <ul>
+                            <li>Each lesson has a discussion forum and FAQ</li>
+                            <li>Connect with me personally, as I jump in to answer your questions</li>
+                        </ul>
+                    </div><!--.col-->
+                </div><!--.row-->
+
+
+
+            </div><!--.container-->
+        </section>
+
+        <section id="final-buy-now">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-12 text-center buy-now">
+                        
+<a class="gumroad-button" href="https://gum.co/oLpqb?wanted=true" data-gumroad-single-product="true">Get Started Now</a>
+<br>
+<small class="text-muted cta-subtext">
+    <i class="glyphicon glyphicon-lock"></i>
+    Purchase securely with Paypal or Credit Card.
+</small>
+                    </div><!--.col-->
+                </div><!--.row-->
+
+            </div><!--.container-->
+        </section>
+
+        <section id="footer-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-muted text-center">
+                        &copy; Hartley Brody
+                    </div><!--.col-->
+                </div><!--.row-->
+            </div><!--.container-->
+        </section>
+
+        <div class="modal fade" id="bounce-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+                        <h4 class="modal-title">Before You Go&hellip;</h4>
+                    </div>
+                    <div class="modal-body text-center">
+                        <p class="lead">$50 Off Code</p>
+                        <p>Use promo code <strong>LASTCHANCE</strong> to get $50 off the full course price, but only for a limited time:</p>
+                        <p data-minutes="9" data-seconds="00" id="modal-countdown" class="lead">9:00</p>
+                    </div>
+                    <div class="modal-footer buy-now">
+                        
+                            
+<a class="gumroad-button" href="https://gum.co/oLpqb/LASTCHANCE?wanted=true" data-gumroad-single-product="true">Get Started Now</a>
+<br>
+<small class="text-muted cta-subtext">
+    <i class="glyphicon glyphicon-lock"></i>
+    Purchase securely with Paypal or Credit Card.
+</small>
+                        
+                        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+    </div>
+
+
+    <section id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center text-muted">
+                    Lessons and Videos &copy; Hartley Brody 2023
+                </div><!--.col-->
+            </div><!--.row-->
+        </div><!--.container-->
+    </section>
+  </body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+  
+
+    <script src="https://gumroad.com/js/gumroad.js"></script>
+
+    <script src="/static/js/jrumble.js"></script>
+    
+    <script src="/static/js/bounce-modal.js"></script>
+    
+    <script type="text/javascript">
+        // rumble the CTA buttons
+        var rumbleButton = $('.gumroad-button');
+
+        rumbleButton.jrumble();
+        rumbleButton.trigger('startRumble');
+
+        var startRumble = function(){
+            rumbleButton.trigger('startRumble');
+            setTimeout(stopRumble, 300);
+        };
+        var stopRumble = function(){
+            rumbleButton.trigger('stopRumble');
+            setTimeout(startRumble, 4000);
+        };
+        startRumble();
+    </script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pnotify/2.1.0/pnotify.core.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/pnotify/2.1.0/pnotify.core.min.css" rel="stylesheet" type="text/css">
+
+  <!-- pnotify messages -->
+  <script type="text/javascript">
+    
+    PNotify.prototype.options.styling = "bootstrap3";
+    $(function(){
+      
+    });
+    
+
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  <!-- golbal video controls -->
+  <script type="text/javascript">
+    $("video").hover(function() {
+        $(this).prop("controls", true);
+    }, function() {
+        $(this).prop("controls", false);
+    });
+
+    $("video").click(function() {
+        if( this.paused){
+            this.play();
+        }
+        else {
+            this.pause();
+        }
+    });
+    </script>
+
+  <!-- insert google analytics here -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-41551755-8', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <!-- Facebook Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+  fbq('init', '764287443701341');
+  fbq('track', "PageView");</script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=764287443701341&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Facebook Pixel Code -->
+
+  <!-- Google Code for Remarketing Tag -->
+  <script type="text/javascript">
+    /* <![CDATA[ */
+    var google_conversion_id = 950945448;
+    var google_custom_params = window.google_tag_params;
+    var google_remarketing_only = true;
+    /* ]]> */
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+    <noscript>
+    <div style="display:inline;">
+    <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/950945448/?guid=ON&amp;script=0"/>
+    </div>
+  </noscript>
+
+  <!-- Global site tag (gtag.js) - Google AdWords: 950945448 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-950945448"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+
+   gtag('config', 'AW-950945448');
+  </script>
+
+</html>
