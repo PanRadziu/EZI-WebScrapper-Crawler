@@ -24,8 +24,8 @@ Advanced web crawler and scraper with a graphical user interface. MIT Licensed.
 The project consists of a Backend (Python/FastAPI) and a Frontend (React/Vite).
 
 ### Requirements
-* Python 3.11+
-* Node.js 18+
+* Python 3.11+ (https://www.python.org/downloads/)
+* Node.js 22+ (https://nodejs.org/en/download)
 
 ### Step 1: Backend
 
@@ -105,3 +105,48 @@ After the task is finished, you can:
 
 *   **CORS Error**: Ensure the backend is running on port 8000 and frontend on 5173. If using other ports, update `CORS_ORIGINS` in `backend/backend_app/settings.py`.
 *   **Write Permissions**: Ensure the `backend/data` folder has write permissions for the user running the script.
+
+## Capabilities
+
+### Crawling
+
+Creating presets (Job) where you can define your settings:
+
+![Job Settings](./screany/1.png)
+
+Some explanation:
+* **Search Method**: Choose between Breadth-First Search (BFS) or Depth-First Search (DFS) strategies.
+* **Link Filters**: Powerful Regex patterns to control the crawler. Use `Allow` for specific paths (e.g., only `/blog/`) and `Deny` to skip unwanted content (e.g., `.pdf` files).
+* **User Agents**: Optional configurable list. The crawler will select a random User-Agent for every request to mimic real browsers.
+* **Proxy List**: List of proxies to bypass IP blocking.
+
+**Running presets**
+
+Once you have created your preset, you can see it on the Dashboard and run it:
+
+![Dashboard](./screany/4.png)
+
+When you run your preset, a Job is created. In the run tab, you can monitor the real-time progress:
+
+![Running Job](./screany/2.png)
+
+Once the job is done, you will see a summary of downloaded pages and found links:
+
+![Finished Job](./screany/3.png)
+
+### Scraping
+
+When content is fetched, the application extracts URLs, titles, meta tags, keywords, and response headers. It saves everything to local **JSON storage** (`backend/data/`) along with the data needed to represent the graph.
+
+Here you can export scrape results to JSON (even while the run is still in progress).
+
+**Nodes Structure (Metadata, Titles, Keywords):**
+![JSON Nodes](./screany/5.png)
+
+**Edges Structure (Links between pages):**
+
+![JSON Edgess](./screany/6.png)
+
+The application allows you to preview your graph visualization (which can be large!). You can interact with nodes (click to open URL) and export the graph as a high-quality **.png**:
+
+![Graph Visualization](./screany/7.png)

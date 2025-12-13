@@ -53,3 +53,8 @@ Thumbs.db
 
 # Project Data
 backend/data/
+
+#other
+.vscode/
+.idea/
+*.log
